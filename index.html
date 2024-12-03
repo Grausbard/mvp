@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Подключите Bootstrap, если используете -->
+</head>
+<body>
+    <header>
+        <div class="logo">Логотип</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="trip-list.html">Командировки</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+        <button class="profile-btn">Вход/Профиль</button>
+    </header>
+    <aside>
+        <ul>
+            <li><a href="index.html">Дашборд</a></li>
+            <li><a href="trip-list.html">Командировки</a></li>
+            <li><a href="#">Сотрудники</a></li>
+            <li><a href="#">Отчеты</a></li>
+        </ul>
+    </aside>
+    <main>
+        <div class="dashboard-header">
+            <h1>Дашборд</h1>
+            <button class="create-trip-btn" onclick="window.location.href='trips.html'">
+                Создать командировку
+            </button>
+        </div>
+        
+        <section class="dashboard">
+            <div class="widget">
+                <h3>Активные командировки</h3>
+                <div class="widget-content" id="activeTrips">
+                    <!-- Здесь будет контент -->
+                    <p>Нет активных командировок</p>
+                </div>
+            </div>
+            <div class="widget">
+                <h3>Ожидают согласования</h3>
+                <div class="widget-content" id="pendingTrips">
+                    <!-- Здесь будет контент -->
+                    <p>Нет командировок на согласовании</p>
+                </div>
+            </div>
+            <div class="widget">
+                <h3>Последние действия</h3>
+                <div class="widget-content" id="recentActions">
+                    <!-- Здесь будет контент -->
+                    <p>Нет последних действий</p>
+                </div>
+            </div>
+            <div class="widget">
+                <h3>Календарь командировок</h3>
+                <div class="widget-content" id="tripsCalendar">
+                    <!-- Здесь будет календарь -->
+                    <p>Нет запланированных командировок</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>

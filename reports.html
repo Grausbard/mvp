@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчеты и статистика</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Подключаем Chart.js для графиков -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">Логотип</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="trip-list.html">Командировки</a></li>
+                <li><a href="reports.html" class="active">Отчеты</a></li>
+            </ul>
+        </nav>
+        <button class="profile-btn">Профиль</button>
+    </header>
+
+    <div class="container">
+        <aside>
+            <ul>
+                <li><a href="index.html">Дашборд</a></li>
+                <li><a href="trip-list.html">Командировки</a></li>
+                <li><a href="reports.html" class="active">Отчеты</a></li>
+            </ul>
+        </aside>
+
+        <main class="reports-container">
+            <h1>Отчеты и статистика</h1>
+
+            <div class="report-filters">
+                <select id="periodFilter">
+                    <option value="month">За месяц</option>
+                    <option value="quarter">За квартал</option>
+                    <option value="year">За год</option>
+                </select>
+                <button id="updateReports" class="btn-primary">Обновить</button>
+            </div>
+
+            <div class="reports-grid">
+                <!-- Основные метрики -->
+                <div class="metric-card">
+                    <h3>Всего командировок</h3>
+                    <div class="metric-value" id="totalTrips">0</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Общий бюджет</h3>
+                    <div class="metric-value" id="totalBudget">0 ₽</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Средняя длительность</h3>
+                    <div class="metric-value" id="avgDuration">0 дней</div>
+                </div>
+                <div class="metric-card">
+                    <h3>На согласовании</h3>
+                    <div class="metric-value" id="pendingTrips">0</div>
+                </div>
+            </div>
+
+            <!-- Графики -->
+            <div class="charts-container">
+                <div class="chart-card">
+                    <h3>Командировки по месяцам</h3>
+                    <canvas id="tripsChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Распределение бюджета</h3>
+                    <canvas id="budgetChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Таблица топ направлений -->
+            <div class="top-destinations">
+                <h3>Популярные направления</h3>
+                <table class="reports-table">
+                    <thead>
+                        <tr>
+                            <th>Направление</th>
+                            <th>Количество поездок</th>
+                            <th>Общий бюджет</th>
+                        </tr>
+                    </thead>
+                    <tbody id="topDestinationsBody">
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/reports.js"></script>
+</body>
+</html> 

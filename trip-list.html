@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список командировок</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Логотип</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="trip-list.html" class="active">Командировки</a></li>
+            </ul>
+        </nav>
+        <button class="profile-btn">Профиль</button>
+    </header>
+
+    <div class="container">
+        <aside>
+            <ul>
+                <li><a href="index.html">Дашборд</a></li>
+                <li><a href="trip-list.html" class="active">Командировки</a></li>
+                <li><a href="#">Сотрудники</a></li>
+                <li><a href="#">Отчеты</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="trips-header">
+                <h1>Список командировок</h1>
+                <div class="trips-actions">
+                    <div class="search-box">
+                        <input type="text" id="searchTrips" placeholder="Поиск командировок...">
+                    </div>
+                    <div class="filter-box">
+                        <select id="statusFilter">
+                            <option value="">Все статусы</option>
+                            <option value="pending">На согласовании</option>
+                            <option value="approved">Утверждено</option>
+                            <option value="completed">Завершено</option>
+                            <option value="cancelled">Отменено</option>
+                        </select>
+                    </div>
+                    <button class="create-trip-btn" onclick="window.location.href='trips.html'">
+                        Создать командировку
+                    </button>
+                </div>
+            </div>
+
+            <div class="trips-table-container">
+                <table class="trips-table">
+                    <thead>
+                        <tr>
+                            <th>Сотрудник</th>
+                            <th>Направление</th>
+                            <th>Даты</th>
+                            <th>Статус</th>
+                            <th>Бюджет</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tripsTableBody">
+                        <!-- Данные будут добавлены через JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Модальное окно для просмотра/редактирования -->
+            <div id="tripModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Детали командировки</h2>
+                    <div id="tripDetails"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/trip-list.js"></script>
+</body>
+</html> 

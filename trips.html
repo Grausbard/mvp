@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание командировки</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Логотип</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="trips.html" class="active">Командировки</a></li>
+            </ul>
+        </nav>
+        <button class="profile-btn">Профиль</button>
+    </header>
+
+    <div class="container">
+        <aside>
+            <ul>
+                <li><a href="#">Дашборд</a></li>
+                <li><a href="#" class="active">Командировки</a></li>
+                <li><a href="#">Сотрудники</a></li>
+                <li><a href="#">Отчеты</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <form id="businessTripForm" class="trip-form">
+                <div class="steps-indicator">
+                    <div class="step active">Шаг 1</div>
+                    <div class="step">Шаг 2</div>
+                    <div class="step">Шаг 3</div>
+                    <div class="step">Шаг 4</div>
+                </div>
+
+                <div class="step-content" id="step1">
+                    <h2>Основная информация</h2>
+                    <div class="form-group">
+                        <label for="employee">Сотрудник</label>
+                        <select id="employee" required>
+                            <option value="">Выберите сотрудника</option>
+                            <option value="1">Иванов И.И.</option>
+                            <option value="2">Петров П.П.</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Даты командировки</label>
+                        <div class="date-range">
+                            <input type="date" id="startDate" required>
+                            <input type="date" id="endDate" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="destination">Город/страна</label>
+                        <input type="text" id="destination" list="cities" required>
+                        <datalist id="cities">
+                            <option value="Москва">
+                            <option value="Санкт-Петербург">
+                            <option value="Казань">
+                        </datalist>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="purpose">Цель поездки</label>
+                        <textarea id="purpose" required></textarea>
+                    </div>
+                </div>
+
+                <div class="step-content" id="step2" style="display: none;">
+                    <h2>Детали поездки</h2>
+                    
+                    <div class="form-group">
+                        <label>Тип транспорта</label>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="transport" value="plane" required>
+                                Самолет
+                            </label>
+                            <label>
+                                <input type="radio" name="transport" value="train">
+                                Поезд
+                            </label>
+                            <label>
+                                <input type="radio" name="transport" value="car">
+                                Автомобиль
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Проживание</label>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" name="accommodation" value="hotel">
+                                Отель
+                            </label>
+                            <label>
+                                <input type="checkbox" name="accommodation" value="apartment">
+                                Апартаменты
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Дополнительные расходы</label>
+                        <div id="additional-expenses">
+                            <div class="expense-item">
+                                <input type="text" placeholder="Название расхода">
+                                <input type="number" placeholder="Сумма">
+                                <button type="button" class="remove-expense">Удалить</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-expense">Добавить расход</button>
+                    </div>
+                </div>
+
+                <div class="step-content" id="step3" style="display: none;">
+                    <h2>Бюджет</h2>
+                    
+                    <div class="budget-calculator">
+                        <div class="form-group">
+                            <label>Транспорт</label>
+                            <input type="number" id="transport-cost" class="cost-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Проживание</label>
+                            <input type="number" id="accommodation-cost" class="cost-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Суточные</label>
+                            <input type="number" id="daily-allowance" class="cost-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Дополнительные расходы</label>
+                            <input type="number" id="additional-costs" class="cost-input">
+                        </div>
+
+                        <div class="total-budget">
+                            <h3>Итого: <span id="total-amount">0</span> ₽</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-content" id="step4" style="display: none;">
+                    <h2>Подтверждение</h2>
+                    
+                    <div class="summary">
+                        <h3>Сводка командировки</h3>
+                        <div id="trip-summary">
+                            <!-- Здесь будет генерироваться сводка -->
+                        </div>
+                    </div>
+
+                    <div class="confirmation-checkbox">
+                        <label>
+                            <input type="checkbox" id="confirm-data" required>
+                            Подтверждаю правильность введенных данных
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="btn-prev" disabled>Назад</button>
+                    <button type="button" class="btn-next">Далее</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/trips.js"></script>
+</body>
+</html>
